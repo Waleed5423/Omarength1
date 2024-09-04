@@ -11,7 +11,7 @@ const Footer = () => {
           <img src={img} alt="Logo" className="mb-3 w-75   d-md-none" />
         </div>
         <div className="d-flex justify-content-center mb-3">
-          <div className="social-icons me-3">
+          <div className="social-icon me-3">
             <a
               href="https://www.tiktok.com/@omarength"
               target="_blank"
