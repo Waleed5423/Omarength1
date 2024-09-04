@@ -1,0 +1,29 @@
+.service-heading h3 {
+  font-family: "heading", sans-serif;
+  letter-spacing: 2px;
+  font-weight: lighter;
+}
+.service-heading h6 {
+  color: var(--primary-color);
+}
+
+.icon-circle {
+  background-color: rgb(29, 28, 28);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-desc {
+  color: #b3570d;
+  font-size: 0.9rem;
+}

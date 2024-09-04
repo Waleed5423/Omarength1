@@ -1,0 +1,73 @@
+.carousel-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.slide-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.slide-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+  z-index: 1;
+}
+
+.slide-text {
+  position: absolute;
+  color: var(--primary-color);
+  padding: 10px 20px;
+  font-size: 5vw; /* Responsive font size based on viewport width */
+  border-radius: 5px;
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.2; /* Adjust line-height for better readability */
+  font-family: "heading", sans-serif;
+  z-index: 2; /* Make sure text is above the overlay */
+}
+
+/* Media Queries for finer control */
+@media (max-width: 1200px) {
+  .slide-text {
+    font-size: 4vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .slide-text {
+    font-size: 3vw;
+  }
+  .carousel-container {
+    height: 89vh;
+  }
+  .slide-content {
+    height: 89vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-text {
+    font-size: 4rem; /* Fixed size for very small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .slide-text {
+    font-size: 3rem; /* Smaller size for mobile screens */
+  }
+}

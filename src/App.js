@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import PackageDetails from "./Components/PacakageDetail/PackageDetails";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const handleAnchorClicks = (event) => {
+      if (event.target.tagName === "A" && event.target.getAttribute("href").startsWith("#")) {
+        event.preventDefault();
+        const targetId = event.target.getAttribute("href").slice(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+    
+    document.addEventListener("click", handleAnchorClicks);
+    return () => {
+      document.removeEventListener("click", handleAnchorClicks);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/package-details/:type" element={<PackageDetails />} />
+        </Routes>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;

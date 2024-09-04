@@ -1,13 +1,73 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: var(--background-color);
+  font-family: "Fira Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0%;
+}
+html {
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: #f36d00;
+  --secondary-color: #ffffff;
+  --background-color: #020202;
+  --menu-icon-color: var(--secondary-color);
+  --nav-background-light: rgba(234, 234, 234, 0.2);
+  --nav-background: var(--secondary-color);
+  --nav-list-item-hover: #000000;
+}
+
+@font-face {
+  font-family: "heading";
+  src: url("./Media/soccer_league/SoccerLeague.ttf") format("truetype");
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nav-background-light);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.about {
+  color: var(--primary-color);
+  font-family:Georgia, 'Times New Roman', Times, serif
+}
+.para{
+  color: var(--primary-color);
+}
+.borders{
+  border: var(--primary-color) 1px solid;
+}
+.abouts {
+  color: var(--primary-color);
+  font-family:"heading";
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background-color: var(--primary-color); /* Optional: Background color */
+  padding: 1rem; /* Optional: Padding for spacing */
+}
+
+.marquee-content {
+  display: flex; /* Flexbox for horizontal alignment */
+  gap: 2rem; /* Space between repeated items */
+  font-size: 2rem; /* Adjust the font size as needed */
+  color: #ffffff; /* Text color */
 }
