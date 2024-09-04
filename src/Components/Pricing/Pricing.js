@@ -9,10 +9,10 @@ const pricingPlans = [
     price: "RS 5,999",
     period: "/month",
     features: [
-      "Custom Workout plan",
+      "Custom workout plan",
       "Meal plan",
-      "Progressive Tracking",
-      "Weekly Check-ins",
+      "Progressive tracking",
+      "Weekly check-ins",
       "24/7 Support",
     ],
   },
@@ -22,11 +22,11 @@ const pricingPlans = [
     price: "RS 8,999",
     period: "/month",
     features: [
-      "Custom Workout plan",
+      "Custom workout plan",
       "Meal plan",
-      "Progressive Tracking",
-      "Weekly Check-ins",
-      "Online Call Consultation",
+      "Progressive tracking",
+      "Weekly check-ins",
+      "Online call consultation",
       "24/7 Support",
     ],
   },
@@ -36,7 +36,10 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
   return (
     <>
       <section className="bg-black" id="pricing" ref={pricingRef}>
-        <div ref={pricing2Ref} className="service-heading text-center text-uppercase pt-md-5 pt-4">
+        <div
+          ref={pricing2Ref}
+          className="service-heading text-center text-uppercase pt-md-5 pt-4"
+        >
           <h6>Pricing</h6>
           <h3 className="text-light">What We Can Offer</h3>
         </div>

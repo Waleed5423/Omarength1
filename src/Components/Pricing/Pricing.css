@@ -54,7 +54,7 @@
 .pricing-card .heading p,
 .pricing-cards .heading p {
   color: #a3a3a3;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: lighter;
 }
 
@@ -94,7 +94,8 @@
 .pricing-cards .features li i,
 .pricing-cards .features li strong {
   color: #e4e4e7;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: normal;
   text-align: left;
 }
 

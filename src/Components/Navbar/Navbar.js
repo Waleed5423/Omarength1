@@ -67,13 +67,6 @@ const Navbar = () => {
             </a>
             <a
               style={{ textDecoration: "none" }}
-              href="#choose"
-              onClick={closeNavAndScroll}
-            >
-              <li className="nav__list-item">Why Choose Us</li>
-            </a>
-            <a
-              style={{ textDecoration: "none" }}
               href="#services"
               onClick={closeNavAndScroll}
             >
@@ -93,13 +86,7 @@ const Navbar = () => {
             >
               <li className="nav__list-item">Reviews</li>
             </a>
-            <a
-              style={{ textDecoration: "none" }}
-              href="#aboutus"
-              onClick={closeNavAndScroll}
-            >
-              <li className="nav__list-item">About Us</li>
-            </a>
+
             <a
               style={{ textDecoration: "none" }}
               href="#contact"
