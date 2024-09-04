@@ -14,7 +14,6 @@ const pricingPlans = [
       "Progressive Tracking",
       "Weekly Check-ins",
       "24/7 Support",
-      "PDF file",
     ],
   },
   {
@@ -26,11 +25,9 @@ const pricingPlans = [
       "Custom Workout plan",
       "Meal plan",
       "Progressive Tracking",
-      "Online Chat",
-      "Video Fitness Consultancy",
       "Weekly Check-ins",
+      "Online Call Consultation",
       "24/7 Support",
-      "PDF file",
     ],
   },
 ];
@@ -71,19 +68,25 @@ const PackageDetails = () => {
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         templateParams,
-        "YOUR_USER_ID"
+        process.env.REACT_APP_USER_ID
       )
       .then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
-          alert("Form submitted successfully!");
+          alert(
+            "Your message has been successfully submitted!\n\n" +
+              "Thank you for reaching out. We will get back to you shortly via email or WhatsApp."
+          );
         },
         (err) => {
           console.log("FAILED...", err);
-          alert("Form submission failed. Please try again.");
+          alert(
+            "Oops! There was an issue with submitting your message.\n\n" +
+              "Please check your details and try again. If the problem persists, feel free to contact us directly."
+          );
         }
       );
   };
@@ -98,32 +101,32 @@ const PackageDetails = () => {
         Back
       </button>
       <button
-  onClick={() => navigate("/")}
-  className="btn position-fixed top-0 start-0 ms-3 d-md-none"
-  style={{
-    zIndex: 1, // Ensure this is higher than the navbar's z-index
-    backgroundColor: "var(--primary-color)",
-    marginTop: "75px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "50px", // Adjust width as needed
-    height: "50px", // Adjust height as needed
-    borderRadius: "50%", // Makes the button round
-    padding: "0", // Remove default padding
-  }}
->
-  <lord-icon
-    src="https://cdn.lordicon.com/uvtlaqep.json"
-    trigger="hover"
-    colors="primary:#ffffff"
-    style={{
-      width: "20px",
-      height: "20px",
-      transform: "rotate(180deg)",
-    }}
-  ></lord-icon>
-</button>
+        onClick={() => navigate("/")}
+        className="btn position-fixed top-0 start-0 ms-3 d-md-none"
+        style={{
+          zIndex: 1,
+          backgroundColor: "var(--primary-color)",
+          marginTop: "75px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "50px",
+          height: "50px",
+          borderRadius: "50%",
+          padding: "0",
+        }}
+      >
+        <lord-icon
+          src="https://cdn.lordicon.com/uvtlaqep.json"
+          trigger="hover"
+          colors="primary:#ffffff"
+          style={{
+            width: "20px",
+            height: "20px",
+            transform: "rotate(180deg)",
+          }}
+        ></lord-icon>
+      </button>
       {selectedPackage ? (
         <>
           <h3 className="mt-4 d-md-none d-block text-center font-monospace para pt-5">

@@ -32,7 +32,7 @@ const Services = () => {
   return (
     <div className="container my-md-5 my-4" id="choose">
       <div className="service-heading text-center my-5">
-        <h6>WHY CHOOSE US?</h6>
+        <h6>WHY CHOOSE OMARENGTH?</h6>
         <h3 className="text-light">PUSH YOUR LIMITS FORWARD</h3>
       </div>
       <div className="row">

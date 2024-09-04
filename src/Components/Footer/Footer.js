@@ -4,7 +4,7 @@ import { FaInstagram, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-light py-4 mt-5">
+    <footer className="bg-black text-light py-4 ">
       <div className="container text-center">
         <div className="d-flex justify-content-center">
           <img src={img} alt="Logo" className="mb-3 w-25 d-md-block d-none" />
@@ -30,9 +30,7 @@ const Footer = () => {
         </div>
         <p className="mb-0 fs-6">
           &copy; 2024 Omerength. All rights reserved.{" "}
-          <a href="www.wdp-123.netlify.app" className="about">
-            Wdp
-          </a>
+          
         </p>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import "./Packages.css";
 const cardData = [
   {
     imgSrc:
-      "https://images.pexels.com/photos/5209197/pexels-photo-5209197.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/10518845/pexels-photo-10518845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "Weight lifting",
     description: "Strength",
   },
@@ -17,7 +17,7 @@ const cardData = [
   },
   {
     imgSrc:
-      "https://images.pexels.com/photos/10518845/pexels-photo-10518845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "https://images.pexels.com/photos/5209197/pexels-photo-5209197.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Strength Training",
     description: "Strength",
   },
@@ -78,7 +78,11 @@ const Packages = ({ pricingRef }) => {
                           trigger="hover"
                           state="hover-ternd-flat-5"
                           colors="primary:#f36d00"
-                          style={{ width: "40px", height: "40px", marginTop: "5px" }}
+                          style={{
+                            width: "40px",
+                            height: "40px",
+                            marginTop: "5px",
+                          }}
                         ></lord-icon>
                       </button>
                     </div>

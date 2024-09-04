@@ -1,16 +1,23 @@
 import React from "react";
-import "./Banner.css"
+import "./Banner.css";
 
-const Banner = () => {
+const Banner = ({ contactRef }) => {
+  const handleScrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section class="hero-section d-flex align-items-center justify-content-center text-center ">
-      <div class="overlay"></div>
-      <div class="content">
-        <h1>REGISTRATION NOW TO GET MORE DEALS</h1>
+    <section className="hero-section d-flex align-items-center justify-content-center text-center">
+      <div className="overlay"></div>
+      <div className="content">
+        <h1>REGISTER NOW TO EMBARK YOUR FITNESS JOURNEY</h1>
         <p>WHERE HEALTH, BEAUTY AND FITNESS MEET.</p>
-        <a href="#" class="btn btn-outline-light">
-          APPOINTMENT
-        </a>
+        <button
+          onClick={handleScrollToContact}
+          className="btn btn-outline-light"
+        >
+          Contact
+        </button>
       </div>
     </section>
   );

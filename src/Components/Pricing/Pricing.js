@@ -14,7 +14,6 @@ const pricingPlans = [
       "Progressive Tracking",
       "Weekly Check-ins",
       "24/7 Support",
-      "PDF file",
     ],
   },
   {
@@ -26,55 +25,55 @@ const pricingPlans = [
       "Custom Workout plan",
       "Meal plan",
       "Progressive Tracking",
-      "Online Chat",
-      "Video Fitness Consultancy",
       "Weekly Check-ins",
+      "Online Call Consultation",
       "24/7 Support",
-      "PDF file",
     ],
   },
 ];
 
-const Pricing = forwardRef((props, ref) => {
+const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
   return (
-    <section className="bg-black" id="pricing" ref={ref}>
-      <div className="service-heading text-center text-uppercase pt-md-5 pt-4">
-        <h6>Pricing</h6>
-        <h3 className="text-light">What We Can Offer</h3>
-      </div>
-      <div className="pricing-plans d-md-flex d-block">
-        {pricingPlans.map((plan, index) => (
-          <div
-            key={index}
-            className={`pricing-card mx-md-3 my-md-0 mt-4 ${plan.type.toLowerCase()}`}
-          >
-            <div className="heading">
-              <h4>{plan.type}</h4>
-              <p>{plan.description}</p>
-            </div>
-            <p className="price">
-              {plan.price}
-              <sub>{plan.period}</sub>
-            </p>
-            <ul className="features mt-2">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="fs-6">
-                  <i className="fa-solid fa-check"></i>
-                  <strong>{feature.split(" ")[0]}</strong>{" "}
-                  {feature.split(" ").slice(1).join(" ")}
-                </li>
-              ))}
-            </ul>
-            <Link
-              to={`/package-details/${plan.type}`}
-              className="cta-btn text-decoration-none"
+    <>
+      <section className="bg-black" id="pricing" ref={pricingRef}>
+        <div ref={pricing2Ref} className="service-heading text-center text-uppercase pt-md-5 pt-4">
+          <h6>Pricing</h6>
+          <h3 className="text-light">What We Can Offer</h3>
+        </div>
+        <div className="pricing-plans d-md-flex d-block">
+          {pricingPlans.map((plan, index) => (
+            <div
+              key={index}
+              className={`pricing-card mx-md-3 my-md-0 mt-4 ${plan.type.toLowerCase()}`}
             >
-              SELECT
-            </Link>
-          </div>
-        ))}
-      </div>
-    </section>
+              <div className="heading">
+                <h4>{plan.type}</h4>
+                <p>{plan.description}</p>
+              </div>
+              <p className="price">
+                {plan.price}
+                <sub>{plan.period}</sub>
+              </p>
+              <ul className="features mt-2">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="fs-6">
+                    <i className="fa-solid fa-check"></i>
+                    <strong>{feature.split(" ")[0]}</strong>{" "}
+                    {feature.split(" ").slice(1).join(" ")}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to={`/package-details/${plan.type}`}
+                className="cta-btn text-decoration-none"
+              >
+                SELECT
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 });
 
