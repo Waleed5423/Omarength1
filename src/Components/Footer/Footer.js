@@ -1,7 +1,6 @@
 import React from "react";
 import img from "../../Media/logo.png";
-import { FaInstagram, FaTiktok } from 'react-icons/fa';
-
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -13,11 +12,23 @@ const Footer = () => {
         </div>
         <div className="d-flex justify-content-center mb-3">
           <div className="social-icons me-3">
-            <FaTiktok />
-            <FaInstagram />
+            <a
+              href="https://www.tiktok.com/@omarength"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTiktok />
+            </a>
+            <a
+              href="https://www.instagram.com/omarength/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram />
+            </a>
           </div>
         </div>
-        <p className="mb-0">
+        <p className="mb-0 fs-6">
           &copy; 2024 Omerength. All rights reserved.{" "}
           <a href="www.wdp-123.netlify.app" className="about">
             Wdp

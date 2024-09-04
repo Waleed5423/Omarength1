@@ -3,12 +3,12 @@ body {
   font-family: "Fira Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
   margin: 0%;
 }
 html {
   scroll-behavior: smooth;
 }
-
 :root {
   --primary-color: #f36d00;
   --secondary-color: #ffffff;

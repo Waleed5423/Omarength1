@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from 'react';
 import ImageCarousel from "../Components/Carousel/ImageCarousel";
 import Services from "../Components/Services/Services";
 import Packages from "../Components/Packages/Packages";
@@ -13,14 +13,15 @@ import About from "../Components/About/About";
 import Marquee from "../Components/Marquee/Marquee";
 
 const Home = () => {
+  const pricingRef = useRef(null);
   return (
     <>
       <ImageCarousel />
       <Services />
-      <Packages />
+      <Packages pricingRef={pricingRef} />
       <Marquee />
       <Banner />
-      <Pricing />
+      <Pricing ref={pricingRef} />
       <Gallary />
       <Profile />
       <About />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
 
 const pricingPlans = [
@@ -40,6 +40,7 @@ const trainingPackages = ["Weight Lifting", "Weight Loss", "Strength Training"];
 const PackageDetails = () => {
   const { type } = useParams();
   const selectedPackage = pricingPlans.find((plan) => plan.type === type);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const [formData, setFormData] = useState({
     name: "",
@@ -89,12 +90,46 @@ const PackageDetails = () => {
 
   return (
     <div className="container pt-2 px-md-5 mb-md-0 mb-3">
+      <button
+        onClick={() => navigate("/")}
+        className="btn  position-fixed top-0 start-0 mt-3 ms-3 d-md-flex d-none"
+        style={{ zIndex: 100, backgroundColor: "var(--primary-color)" }}
+      >
+        Back
+      </button>
+      <button
+  onClick={() => navigate("/")}
+  className="btn position-fixed top-0 start-0 ms-3 d-md-none"
+  style={{
+    zIndex: 1, // Ensure this is higher than the navbar's z-index
+    backgroundColor: "var(--primary-color)",
+    marginTop: "75px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "50px", // Adjust width as needed
+    height: "50px", // Adjust height as needed
+    borderRadius: "50%", // Makes the button round
+    padding: "0", // Remove default padding
+  }}
+>
+  <lord-icon
+    src="https://cdn.lordicon.com/uvtlaqep.json"
+    trigger="hover"
+    colors="primary:#ffffff"
+    style={{
+      width: "20px",
+      height: "20px",
+      transform: "rotate(180deg)",
+    }}
+  ></lord-icon>
+</button>
       {selectedPackage ? (
         <>
           <h3 className="mt-4 d-md-none d-block text-center font-monospace para pt-5">
             {selectedPackage.type} PLAN
           </h3>
-          <div className="row pt-md-5 pt-3">
+          <div className="row pt-md-5 pt-4">
             <div className="col-md-4 mt-4 d-md-block d-none ">
               <div className="borders pricing-cards">
                 <div className="mt-3 para">
@@ -154,7 +189,9 @@ const PackageDetails = () => {
                   <div className="row">
                     <div className="col-md-6">
                       <div className="mb-3">
-                        <label className="form-label text-light">WhatsApp Number</label>
+                        <label className="form-label text-light">
+                          WhatsApp Number
+                        </label>
                         <input
                           type="text"
                           name="phone"

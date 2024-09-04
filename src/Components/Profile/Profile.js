@@ -4,7 +4,7 @@ import img from "../../Media/profile3.jpg";
 const Profile = () => {
   return (
     <>
-      <div className="service-heading text-center text-uppercase pt-4 pb-4">
+      <div className="service-heading text-center text-uppercase pt-4 pb-4" id="aboutus">
         <h6>About me</h6>
         <h3 className="text-light">Know me more</h3>
       </div>

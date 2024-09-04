@@ -24,7 +24,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="service-heading text-center text-uppercase pt-5 pb-4">
+      <div className="service-heading text-center text-uppercase pt-5 pb-4" id="contact">
         <h6>Contact us </h6>
         <h3 className="text-light">Share your queries</h3>
       </div>

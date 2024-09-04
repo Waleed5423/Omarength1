@@ -1,3 +1,4 @@
+// Packages.js
 import React from "react";
 import "./Packages.css";
 
@@ -22,12 +23,16 @@ const cardData = [
   },
 ];
 
-const Packages = () => {
+const Packages = ({ pricingRef }) => {
+  const handleScrollToPricing = () => {
+    pricingRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="py-md-5 py-4 ">
+    <section className="py-md-5 py-4" id="services">
       <div className="container mt-0 mb-1">
         <div className="service-heading text-center text-uppercase">
-          <h6>OUR Servies</h6>
+          <h6>OUR Services</h6>
           <h3 className="text-light">WHAT WE CAN OFFER</h3>
         </div>
         <div className="row mb-3">
@@ -48,15 +53,34 @@ const Packages = () => {
                       <h4>{card.title}</h4>
                     </div>
                   </div>
-                  <div className="col-4 ">
-                    <div className="proceed px-2 py-2">
-                      <lord-icon
-                        src="https://cdn.lordicon.com/whtfgdfm.json"
-                        trigger="hover"
-                        state="hover-ternd-flat-5"
-                        colors="primary:#f36d00"
-                        style={{width:"30px",height:"30px"}}
-                      ></lord-icon>
+                  <div className="col-4">
+                    <div
+                      className="proceed px-3 "
+                      style={{
+                        display: "flex",
+                        alignItems: "center", // Vertically center
+                        justifyContent: "center", // Horizontally center
+                        height: "100%", // Ensure it takes full height of the parent if needed
+                        padding: 0, // Remove padding if necessary
+                      }}
+                    >
+                      <button
+                        onClick={handleScrollToPricing}
+                        className="btn"
+                        style={{
+                          background: "none",
+                          border: "none",
+                          padding: 0,
+                        }}
+                      >
+                        <lord-icon
+                          src="https://cdn.lordicon.com/whtfgdfm.json"
+                          trigger="hover"
+                          state="hover-ternd-flat-5"
+                          colors="primary:#f36d00"
+                          style={{ width: "40px", height: "40px", marginTop: "5px" }}
+                        ></lord-icon>
+                      </button>
                     </div>
                   </div>
                 </div>

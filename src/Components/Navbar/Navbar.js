@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { FaInstagram, FaTiktok } from 'react-icons/fa';
-
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 import img from "../../Media/logo.png";
 
 const Navbar = () => {
@@ -9,6 +8,21 @@ const Navbar = () => {
 
   const toggleNav = () => {
     setNavActive(!navActive);
+  };
+
+  const closeNavAndScroll = (event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    const targetId = event.currentTarget.getAttribute("href").slice(1);
+    const targetElement = document.getElementById(targetId);
+
+    setNavActive(false); // Start closing the navbar
+
+    // Wait for the closing animation to complete
+    setTimeout(() => {
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 800); // Adjust the timeout duration based on your closing animation duration
   };
 
   return (
@@ -25,17 +39,74 @@ const Navbar = () => {
           <img src={img} className="logo-img" alt="logo" />
         </div>
         <div className="social-icons me-3">
-          <FaTiktok />
-          <FaInstagram />
+          <a
+            href="https://www.tiktok.com/@omarength"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaTiktok />
+          </a>
+          <a
+            href="https://www.instagram.com/omarength/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram />
+          </a>
         </div>
       </div>
       <div className="nav">
         <div className="nav__content">
           <ul className="nav__list">
-            <li className="nav__list-item">Home</li>
-            <li className="nav__list-item">About</li>
-            <li className="nav__list-item">Projects</li>
-            <li className="nav__list-item">Contact</li>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#home"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">Home</li>
+            </a>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#choose"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">Why Choose Us</li>
+            </a>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#services"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">Services</li>
+            </a>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#pricing"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">Pricing</li>
+            </a>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#reviews"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">Testimonials</li>
+            </a>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#aboutus"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">About Us</li>
+            </a>
+            <a
+              style={{ textDecoration: "none" }}
+              href="#contact"
+              onClick={closeNavAndScroll}
+            >
+              <li className="nav__list-item">Contact</li>
+            </a>
           </ul>
         </div>
       </div>

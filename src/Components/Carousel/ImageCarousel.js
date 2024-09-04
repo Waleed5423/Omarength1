@@ -36,7 +36,7 @@ const ImageCarousel = () => {
   ];
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container" id="home">
       <Splide
         ref={splideRef}
         options={{
