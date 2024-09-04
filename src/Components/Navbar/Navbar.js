@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaTiktok } from 'react-icons/fa';
+
 import img from "../../Media/logo.png";
 
 const Navbar = () => {
@@ -24,8 +25,7 @@ const Navbar = () => {
           <img src={img} className="logo-img" alt="logo" />
         </div>
         <div className="social-icons me-3">
-          <FaFacebook />
-          <FaTwitter />
+          <FaTiktok />
           <FaInstagram />
         </div>
       </div>

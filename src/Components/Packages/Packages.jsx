@@ -25,7 +25,7 @@ const cardData = [
 const Packages = () => {
   return (
     <section className="py-md-5 py-4 ">
-      <div className="container mt-3">
+      <div className="container mt-0 mb-1">
         <div className="service-heading text-center text-uppercase">
           <h6>OUR Servies</h6>
           <h3 className="text-light">WHAT WE CAN OFFER</h3>

@@ -22,9 +22,9 @@ const Services = () => {
       iconSrc: "https://cdn.lordicon.com/tkcktgcx.json",
     },
     {
-      title: "Motivation & Support",
+      title: "Motivation Support",
       description:
-        "Stay committed with our motivation & support, providing weekly check-ins, accountability, and guidance to keep you on track towards success.",
+        "Stay committed with our motivation & support, providing weekly check-ins, and guidance to keep you on track towards success.",
       iconSrc: "https://cdn.lordicon.com/aqrzgjfy.json  ",
     },
   ];
@@ -38,7 +38,7 @@ const Services = () => {
       <div className="row">
         {services.map((service, index) => (
           <div
-            className="col-md-3 col-6 text-center mb-2 mb-md-0 px-3"
+            className="col-md-3 col-6 text-center mb-2 mb-md-0 "
             key={index}
           >
             <div className="icon-circle">
@@ -54,7 +54,7 @@ const Services = () => {
             </div>
             <div className="service-desc">
               <h5 className="text-light pt-3">{service.title}</h5>
-              <p>{service.description}</p>
+              <p className="px-1">{service.description}</p>
             </div>
           </div>
         ))}

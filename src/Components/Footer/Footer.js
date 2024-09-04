@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../../Media/logo.png";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaTiktok } from 'react-icons/fa';
+
 
 const Footer = () => {
   return (
@@ -12,8 +13,7 @@ const Footer = () => {
         </div>
         <div className="d-flex justify-content-center mb-3">
           <div className="social-icons me-3">
-            <FaFacebook />
-            <FaTwitter />
+            <FaTiktok />
             <FaInstagram />
           </div>
         </div>
