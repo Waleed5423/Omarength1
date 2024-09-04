@@ -14,7 +14,7 @@ const Gallery = () => {
   return (
     <div className="m-2" id="reviews">
       <div className="service-heading text-center text-uppercase pt-5 mb-5">
-        <h6>Gallary</h6>
+        <h6>REVIEWS</h6>
         <h3 className="text-light">Our satisfied customers</h3>
       </div>
       <Splide

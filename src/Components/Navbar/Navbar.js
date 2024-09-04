@@ -91,7 +91,7 @@ const Navbar = () => {
               href="#reviews"
               onClick={closeNavAndScroll}
             >
-              <li className="nav__list-item">Testimonials</li>
+              <li className="nav__list-item">Reviews</li>
             </a>
             <a
               style={{ textDecoration: "none" }}
