@@ -7,7 +7,7 @@ const cardData = [
     imgSrc:
       "https://images.pexels.com/photos/10518845/pexels-photo-10518845.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "Weight lifting",
-    description: "Strength",
+    description: "PHYSICAL",
   },
   {
     imgSrc:
