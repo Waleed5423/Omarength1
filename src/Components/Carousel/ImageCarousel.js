@@ -11,7 +11,7 @@ const ImageCarousel = ({ pricing2Ref }) => {
       src: "https://images.pexels.com/photos/4164510/pexels-photo-4164510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       text: "PERSONAL TRAINING",
       subtext: "Online all around the globe",
-      description: "Premium weight loss and lifestyle transformations.",
+      description: "Premoim weight loss and lifestyle transformations in just 8 weeks",
     },
     // Add more images if needed
   ];
