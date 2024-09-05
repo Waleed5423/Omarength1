@@ -1,5 +1,6 @@
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./Pricing.css";
 
 const pricingPlans = [
@@ -33,21 +34,47 @@ const pricingPlans = [
 ];
 
 const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <>
       <section className="bg-black" id="pricing" ref={pricingRef}>
-        <div
+        <motion.div
           ref={pricing2Ref}
           className="service-heading text-center text-uppercase pt-md-5 pt-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
         >
-          <h6>Pricing</h6>
-          <h3 className="text-light">What We Can Offer</h3>
-        </div>
-        <div className="pricing-plans d-md-flex d-block">
+          <motion.h6 variants={cardVariants}>Pricing</motion.h6>
+          <motion.h3 className="text-light" variants={cardVariants}>
+            What We Can Offer
+          </motion.h3>
+        </motion.div>
+        <motion.div
+          className="pricing-plans d-md-flex d-block"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
           {pricingPlans.map((plan, index) => (
-            <div
+            <motion.div
               key={index}
               className={`pricing-card mx-md-3 my-md-0 mt-4 ${plan.type.toLowerCase()}`}
+              variants={cardVariants}
             >
               <div className="heading">
                 <h4>{plan.type}</h4>
@@ -72,9 +99,9 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
               >
                 SELECT
               </Link>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
     </>
   );

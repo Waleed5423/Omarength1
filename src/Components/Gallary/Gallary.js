@@ -1,5 +1,6 @@
 import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { motion } from "framer-motion";
 import "@splidejs/splide/dist/css/splide.min.css";
 import img1 from "../../Media/RA.jpg";
 import img2 from "../../Media/RA2.jpg";
@@ -11,15 +12,30 @@ const Gallery = () => {
   // Sample images
   const images = [img1, img2, img3, img4];
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <div className="m-2" id="reviews">
-      <div className="service-heading text-center text-uppercase pt-5 mb-5">
+    <motion.div
+      className="m-2"
+      id="reviews"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+    >
+      <motion.div
+        className="service-heading text-center text-uppercase pt-5 mb-5"
+        variants={containerVariants}
+      >
         <h6>REVIEWS</h6>
         <h3 className="text-light">Our satisfied customers</h3>
-      </div>
+      </motion.div>
       <Splide
         options={{
-          perPage: 3, // Display 2 images at a time
+          perPage: 3, // Display 3 images at a time
           gap: "1rem", // Space between slides
           pagination: false, // Disable pagination
           arrows: true, // Enable navigation arrows
@@ -38,20 +54,24 @@ const Gallery = () => {
       >
         {images.map((image, index) => (
           <SplideSlide key={index}>
-            <img
+            <motion.img
               src={image}
-              className="mx-2"
               alt={`Slide ${index + 1}`}
+              className="mx-2"
               style={{
                 width: "100%",
                 height: "auto",
                 border: "1px solid var(--primary-color)",
               }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6 }}
             />
           </SplideSlide>
         ))}
       </Splide>
-    </div>
+    </motion.div>
   );
 };
 

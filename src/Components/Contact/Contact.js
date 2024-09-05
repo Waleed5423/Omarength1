@@ -1,4 +1,5 @@
 import React, { forwardRef, useState } from "react";
+import { motion } from "framer-motion";
 import img from "../../Media/profile4.jpg";
 import emailjs from "emailjs-com";
 
@@ -49,22 +50,57 @@ const Contact = forwardRef((props, ref) => {
       );
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <section id="contact" ref={ref} className="contact-section ">
-      <div className="service-heading text-center text-uppercase pt-5 pb-4">
-        <h6>Contact Us</h6>
-        <h3 className="text-light">Share Your Queries</h3>
-      </div>
+    <section id="contact" ref={ref} className="contact-section">
+      <motion.div
+        className="service-heading text-center text-uppercase pt-5 pb-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
+        <motion.h6 variants={containerVariants}>Contact Us</motion.h6>
+        <motion.h3 className="text-light" variants={containerVariants}>
+          Share Your Queries
+        </motion.h3>
+      </motion.div>
       <div className="container mt-2 mx-md-5 px-md-5 mb-4">
         <div className="row justify-content-center">
-          <div className="col-md-4">
+          <motion.div
+            className="col-md-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={imageVariants}
+          >
             <img
               src={img}
               alt="Profile"
               className="img-fluid d-md-block d-none w-100"
             />
-          </div>
-          <div className="col-md-8 ps-md-5 px-3 mt-md-2">
+          </motion.div>
+          <motion.div
+            className="col-md-8 ps-md-5 px-3 mt-md-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={formVariants}
+          >
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label
@@ -124,7 +160,7 @@ const Contact = forwardRef((props, ref) => {
                 Send Message
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

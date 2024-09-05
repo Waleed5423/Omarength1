@@ -4,6 +4,7 @@ import "./ImageCarousel.css";
 
 const ImageCarousel = ({ pricing2Ref }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [startAnimation, setStartAnimation] = useState(false);
 
   const images = [
     {
@@ -20,6 +21,16 @@ const ImageCarousel = ({ pricing2Ref }) => {
   };
 
   useEffect(() => {
+    // Start animation after 3.5 seconds
+    const timeout = setTimeout(() => {
+      setStartAnimation(true);
+    }, 800);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    // Cycle through images every 5 seconds
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -39,7 +50,7 @@ const ImageCarousel = ({ pricing2Ref }) => {
                 key={index}
                 className="image-section"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: startAnimation ? 1 : 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
               >
@@ -50,19 +61,43 @@ const ImageCarousel = ({ pricing2Ref }) => {
         )}
       </AnimatePresence>
       <div className="text-section">
-        <h1 className="image-head display-3">{images[currentIndex].text}</h1>
-        <h2 className="image-head2 fw-semibold">
+        <motion.h1
+          className="image-head display-3"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: startAnimation ? 1 : 0, y: 0 }}
+          transition={{ duration: 1, delay: 3.5 }}
+        >
+          {images[currentIndex].text}
+        </motion.h1>
+        <motion.h2
+          className="image-head2 fw-semibold"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: startAnimation ? 1 : 0, y: 0 }}
+          transition={{ duration: 1, delay: 3.8 }}
+        >
           {images[currentIndex].subtext}
-        </h2>
-        <p className="fs-5 my-md-4 my-2">{images[currentIndex].description}</p>
-        <div className="buttons">
+        </motion.h2>
+        <motion.p
+          className="fs-5 my-md-4 my-2"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: startAnimation ? 1 : 0, y: 0 }}
+          transition={{ duration: 1, delay: 4.1 }}
+        >
+          {images[currentIndex].description}
+        </motion.p>
+        <motion.div
+          className="buttons"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: startAnimation ? 1 : 0 }}
+          transition={{ duration: 1, delay: 4.4 }}
+        >
           <button
             className="btn btn-outline-light btn-contact fs-5"
             onClick={handleScrollToContact}
           >
             Start Now
           </button>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

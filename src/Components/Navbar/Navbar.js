@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import "./Navbar.css";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import img from "../../Media/logo.png";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [navActive, setNavActive] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   const toggleNav = () => {
     setNavActive(!navActive);
@@ -24,6 +26,11 @@ const Navbar = () => {
       }
     }, 800); // Adjust the timeout duration based on your closing animation duration
   };
+
+  useEffect(() => {
+    // This effect runs only on the initial page load
+    setInitialLoad(false);
+  }, []);
 
   return (
     <div className={navActive ? "body nav-active" : "body"}>
@@ -55,7 +62,12 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-      <div className="nav">
+      <motion.div
+        className="nav"
+        initial={{ opacity: 0, x: "-100%" }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="nav__content">
           <ul className="nav__list">
             <a
@@ -86,7 +98,6 @@ const Navbar = () => {
             >
               <li className="nav__list-item">Reviews</li>
             </a>
-
             <a
               style={{ textDecoration: "none" }}
               href="#contact"
@@ -96,7 +107,7 @@ const Navbar = () => {
             </a>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

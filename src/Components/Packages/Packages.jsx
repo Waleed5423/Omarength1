@@ -1,5 +1,5 @@
-// Packages.js
 import React from "react";
+import { motion } from "framer-motion";
 import "./Packages.css";
 
 const cardData = [
@@ -28,16 +28,36 @@ const Packages = ({ pricingRef }) => {
     pricingRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <section className="py-md-5 py-4" id="services">
       <div className="container mt-0 mb-1">
-        <div className="service-heading text-center text-uppercase">
+        <motion.div
+          className="service-heading text-center text-uppercase"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={cardVariants}
+        >
           <h6>OUR Services</h6>
           <h3 className="text-light">WHAT WE CAN OFFER</h3>
-        </div>
+        </motion.div>
+
         <div className="row mb-3">
           {cardData.map((card, index) => (
-            <div key={index} className="col-md-4 col-sm-6 col-12 mt-4 px-3">
+            <motion.div
+              key={index}
+              className="col-md-4 col-sm-6 col-12 mt-4 px-3"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={cardVariants}
+              transition={{ delay: 0.2 * index }}
+            >
               <div className="cards text-white bg-black">
                 <div className="card-imgs-container">
                   <img
@@ -58,10 +78,10 @@ const Packages = ({ pricingRef }) => {
                       className="proceed px-3 "
                       style={{
                         display: "flex",
-                        alignItems: "center", // Vertically center
-                        justifyContent: "center", // Horizontally center
-                        height: "100%", // Ensure it takes full height of the parent if needed
-                        padding: 0, // Remove padding if necessary
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "100%",
+                        padding: 0,
                       }}
                     >
                       <button
@@ -89,7 +109,7 @@ const Packages = ({ pricingRef }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
