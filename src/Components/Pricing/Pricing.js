@@ -7,20 +7,20 @@ const pricingPlans = [
   {
     type: "GOLD",
     description: "FITNESS DEAL",
-    price: "RS 6,999",
+    price: "RS 9,999",
     period: "/month",
     features: [
       "Custom workout plan",
       "Meal plan",
       "Progressive tracking",
-      "Weekly check-ins",
+      "Monthly check-ins",
       "24/7 Support",
     ],
   },
   {
     type: "PLATINUM",
     description: "FITNESS DEAL",
-    price: "RS 10,999",
+    price: "RS 14,999",
     period: "/month",
     features: [
       "Custom workout plan",
