@@ -16,7 +16,7 @@ const pricingPlans = [
       "24/7 Support",
     ],
   },
-  {
+ /* {
     type: "PLATINUM",
     description: "FITNESS DEAL",
     price: "RS 14,999",
@@ -29,7 +29,7 @@ const pricingPlans = [
       "Online call consultation",
       "24/7 Support",
     ],
-  },
+  },*/
 ];
 
 const trainingPackages = ["Weight Lifting", "Weight Loss", "Strength Training"];

@@ -17,7 +17,7 @@ const pricingPlans = [
       "24/7 Support",
     ],
   },
-  {
+  /* {
     type: "PLATINUM",
     description: "FITNESS DEAL",
     price: "RS 14,999",
@@ -30,7 +30,7 @@ const pricingPlans = [
       "Online call consultation",
       "24/7 Support",
     ],
-  },
+  },*/
 ];
 
 const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
