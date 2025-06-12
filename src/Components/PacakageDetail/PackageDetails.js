@@ -7,7 +7,7 @@ const pricingPlans = [
     type: "GOLD",
     description: "FITNESS DEAL",
     price: "RS 9,999",
-    period: "/month",
+    period: "",
     features: [
       "Custom workout plan",
       "Meal plan",
