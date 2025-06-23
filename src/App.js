@@ -21,7 +21,7 @@ const App = () => {
   return (
     <>
       {loading && <Loader />}
-      <ReactLenis root options={{ lerp: 0.03, duration: 1.5, smoothTouch: true }}>
+      <ReactLenis root options={{ lerp: 0.5, duration: 1.5, smoothTouch: true }}>
         <Router>
           <Navbar />
           <Routes>
