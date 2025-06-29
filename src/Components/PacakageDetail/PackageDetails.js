@@ -31,7 +31,21 @@ const pricingPlans = [
     ],
   },
 ];
+
 const trainingPackages = ["Weight Lifting", "Weight Loss", "Strength Training"];
+
+const countryCodes = [
+  { code: "+92", country: "Pakistan", flag: "🇵🇰" },
+  { code: "+1", country: "USA/Canada", flag: "🇺🇸" },
+  { code: "+44", country: "UK", flag: "🇬🇧" },
+  { code: "+91", country: "India", flag: "🇮🇳" },
+  { code: "+971", country: "UAE", flag: "🇦🇪" },
+  { code: "+966", country: "Saudi Arabia", flag: "🇸🇦" },
+  { code: "+49", country: "Germany", flag: "🇩🇪" },
+  { code: "+33", country: "France", flag: "🇫🇷" },
+  { code: "+61", country: "Australia", flag: "🇦🇺" },
+  { code: "+81", country: "Japan", flag: "🇯🇵" },
+];
 
 const PackageDetails = () => {
   const { type } = useParams();
@@ -41,6 +55,7 @@ const PackageDetails = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+92",
     phone: "",
     height: "",
     weight: "",
@@ -49,19 +64,61 @@ const PackageDetails = () => {
     trainingPackage: trainingPackages[0],
   });
 
+  const [errors, setErrors] = useState({
+    phone: "",
+  });
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      // Only allow numbers
+      if (value === "" || /^\d*$/.test(value)) {
+        setFormData({ ...formData, [name]: value });
+
+        // Validate for exactly 10 digits (consistent validation)
+        if (value.length > 0 && value.length !== 10) {
+          setErrors({
+            ...errors,
+            phone: "Phone number must be exactly 10 digits",
+          });
+        } else {
+          setErrors({ ...errors, phone: "" });
+        }
+      }
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = { ...errors };
+
+    // Phone number validation - changed to 10 digits
+    if (formData.phone.length !== 10) {
+      newErrors.phone = "Phone number must be exactly 10 digits";
+      valid = false;
+    } else {
+      newErrors.phone = "";
+    }
+
+    setErrors(newErrors);
+    return valid;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      return;
+    }
+
     const templateParams = {
       ...formData,
       package_type: selectedPackage.type,
+      fullPhone: `${formData.countryCode}${formData.phone}`,
     };
-
-    const emailSubject = `${formData.trainingPackage} - ${formData.name}`;
 
     emailjs
       .send(
@@ -98,15 +155,15 @@ const PackageDetails = () => {
         <i className="fa fa-arrow-left"></i>{" "}
         <span className="d-none d-md-inline">Back</span>
       </button>
-      
+
       {selectedPackage ? (
         <>
           <h3 className="mt-4 d-md-none d-block text-center font-monospace para pt-5">
             {selectedPackage.type} PLAN
           </h3>
           <div className="row pt-md-5 pt-4">
-            <div className="col-md-4 mt-4 d-md-block d-none">
-              <div className="borders pricing-cards">
+            <div className="col-md-4 d-md-block d-none">
+              <div className="borders pricing-cards h-100">
                 <div className="mt-3 para">
                   <h3 className="fw-bold">{selectedPackage.type}</h3>
                   <p className="text-white">{selectedPackage.description}</p>
@@ -118,9 +175,9 @@ const PackageDetails = () => {
                   {selectedPackage.price}
                   <sub className="fs-6">{selectedPackage.period}</sub>
                 </p>
-                <ul className="features ms-3 mt-3">
+                <ul className="features ms-3 mt-3 mb-4">
                   {selectedPackage.features.map((feature, i) => (
-                    <li key={i} className="fs-6">
+                    <li key={i} className="fs-6 mb-2">
                       <i className="fa-solid fa-check"></i>
                       <strong>{feature.split(" ")[0]}</strong>{" "}
                       {feature.split(" ").slice(1).join(" ")}
@@ -129,9 +186,9 @@ const PackageDetails = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-md-8 py-md-4">
-              <div className="form-container borders p-4 rounded">
-                <h4 className="text-light mb-3 mt-">Enter Your Details</h4>
+            <div className="col-md-8">
+              <div className="form-container borders p-4 rounded h-100">
+                <h4 className="text-light mb-3">Enter Your Details</h4>
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-md-6">
@@ -163,22 +220,57 @@ const PackageDetails = () => {
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <div className="mb-3">
+                      <div className="mb-2">
                         <label className="form-label text-light">
                           WhatsApp Number
                         </label>
-                        <input
-                          type="text"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="form-control text-light bg-transparent borders"
-                          required
-                        />
+                        <div className="input-group">
+                          <select
+                            name="countryCode"
+                            value={formData.countryCode}
+                            onChange={handleChange}
+                            className="form-control text-light bg-transparent borders"
+                            style={{ maxWidth: "80px", borderRight: "none" }}
+                            required
+                          >
+                            {countryCodes.map((country, index) => (
+                              <option
+                                key={index}
+                                value={country.code}
+                                style={{
+                                  backgroundColor: "#333",
+                                  color: "white",
+                                }}
+                              >
+                                {country.flag} {country.code}
+                              </option>
+                            ))}
+                          </select>
+                          <input
+                            type="text"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="form-control text-light bg-transparent borders"
+                            placeholder="Enter 10-digit number"
+                            style={{ borderLeft: "none" }}
+                            required
+                            maxLength="10"
+                          />
+                        </div>
+                        <small className="text-muted">
+                          Full number: {formData.countryCode}
+                          {formData.phone}
+                          {errors.phone && (
+                            <span className="text-danger d-block mt-1">
+                              {errors.phone}
+                            </span>
+                          )}
+                        </small>
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <div className="mb-3">
+                      <div className="mb-2">
                         <label className="form-label text-light">Height</label>
                         <select
                           name="height"
@@ -272,8 +364,8 @@ const PackageDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-center">
-                    <button type="submit" className="butt w-50 mt-4">
+                  <div className="d-flex justify-content-center mt-3">
+                    <button type="submit" className="butt w-50">
                       Proceed
                     </button>
                   </div>
