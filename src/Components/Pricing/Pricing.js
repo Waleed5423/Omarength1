@@ -8,7 +8,7 @@ const pricingPlans = [
     type: "GOLD",
     description: "",
     price: "Rs 9,999",
-    period: "/month",
+    period: "",
     features: [
       "Custom workout plan",
       "Basic nutrition advice",
@@ -19,7 +19,7 @@ const pricingPlans = [
     type: "PLATINUM",
     description: "Most Popular",
     price: "Rs 13,999",
-    period: "/month",
+    period: "",
     features: [
       "Custom workout plan",
       "Custom meal plan",

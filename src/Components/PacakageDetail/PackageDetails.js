@@ -152,8 +152,7 @@ const PackageDetails = () => {
         className="btn btn-outline-light position-absolute top-0 start-0 mt-3 ms-3 d-flex align-items-center gap-2"
         style={{ zIndex: 100 }}
       >
-        <i className="fa fa-arrow-left"></i>{" "}
-        <span className="d-none d-md-inline">Back</span>
+        <span className="d-md-inline">Back</span>
       </button>
 
       {selectedPackage ? (
