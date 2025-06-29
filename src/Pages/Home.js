@@ -18,16 +18,16 @@ const Home = () => {
 
   return (
     <>
-      <ImageCarousel pricing2Ref={pricing2Ref} />
-      <Services />
-      <Packages pricingRef={pricingRef} />
-      <Marquee />
-      <Banner contactRef={contactRef} />
-      <Pricing pricingRef={pricingRef} pricing2Ref={pricing2Ref} />
-      <Gallary />
-      <Profile />
-      <About />
-      <Contact ref={contactRef} />
+        {/* <ImageCarousel pricing2Ref={pricing2Ref} /> */}
+        {/* <Services /> */}
+        {/* <Packages pricingRef={pricingRef} /> */}
+        {/* <Marquee /> */}
+        {/* <Banner contactRef={contactRef} /> */}
+        <Pricing pricingRef={pricingRef} pricing2Ref={pricing2Ref} />
+        <Gallary />
+      {/* <Profile /> */}
+      {/* <About /> */}
+      {/* <Contact ref={contactRef} /> */}
       <Footer />
     </>
   );

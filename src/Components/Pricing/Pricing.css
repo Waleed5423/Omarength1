@@ -11,10 +11,11 @@
 .pricing-card {
   --col: #e4e4e7;
   position: relative;
-  height: 520px;
+  height: 490px;
   min-width: 320px; 
-  padding: 15px;
-  padding-bottom: 60px;
+  padding-block: 25px;
+  padding-top: 18px;
+  padding-bottom: 20px ;
   border-radius: 4px;
   border: 1px solid var(--primary-color);
   background-color: #26262620;

@@ -6,31 +6,29 @@ import "./Pricing.css";
 const pricingPlans = [
   {
     type: "GOLD",
-    description: "FITNESS DEAL",
-    price: "RS 9,999",
-    period: "",
-    features: [
-      "Custom workout plan",
-      "Meal plan",
-      "Progressive tracking",
-      "Monthly check-ins",
-      "24/7 Support",
-    ],
-  },
-  /* {
-    type: "PLATINUM",
-    description: "FITNESS DEAL",
-    price: "RS 14,999",
+    description: "",
+    price: "Rs 9,999",
     period: "/month",
     features: [
       "Custom workout plan",
-      "Meal plan",
-      "Progressive tracking",
-      "Weekly check-ins",
-      "Online call consultation",
-      "24/7 Support",
+      "Basic nutrition advice",
+      "24/7 text support",
     ],
-  },*/
+  },
+  {
+    type: "PLATINUM",
+    description: "Most Popular",
+    price: "Rs 13,999",
+    period: "/month",
+    features: [
+      "Custom workout plan",
+      "Custom meal plan",
+      "Progressive tracking",
+      "Monthly check-ins",
+      "24/7 text support",
+      "Habit & lifestyle coaching",
+    ],
+  },
 ];
 
 const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
@@ -52,7 +50,8 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
       <section className="bg-black" id="pricing" ref={pricingRef}>
         <motion.div
           ref={pricing2Ref}
-          className="service-heading text-center text-uppercase pt-md-5 pt-4"
+          className="service-heading text-center text-uppercase"
+          style={{ paddingTop: "3rem" }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -73,10 +72,10 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`pricing-card mx-md-3 my-md-0 mt-4 ${plan.type.toLowerCase()}`}
+              className={`pricing-card mx-md-3 my-md-2  mt-4 ${plan.type.toLowerCase()}`}
               variants={cardVariants}
             >
-              <div className="heading">
+              <div className="heading pt-2">
                 <h4>{plan.type}</h4>
                 <p>{plan.description}</p>
               </div>
@@ -94,7 +93,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
                 ))}
               </ul>
               <Link
-                to={`/package-details/${plan.type}`}
+                to={`/package-details/${plan.type.replace(" Package", "")}`}
                 className="cta-btn text-decoration-none"
               >
                 SELECT

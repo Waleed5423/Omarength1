@@ -16,8 +16,21 @@ const pricingPlans = [
       "24/7 Support",
     ],
   },
+  {
+    type: "PLATINUM",
+    description: "PREMIUM FITNESS",
+    price: "RS 13,999",
+    period: "",
+    features: [
+      "Custom workout plan",
+      "Custom meal plan",
+      "Progressive tracking",
+      "Monthly check-ins",
+      "24/7 text support",
+      "Habit & lifestyle coaching",
+    ],
+  },
 ];
-
 const trainingPackages = ["Weight Lifting", "Weight Loss", "Strength Training"];
 
 const PackageDetails = () => {
@@ -76,41 +89,16 @@ const PackageDetails = () => {
   };
 
   return (
-    <div className="container pt-2 px-md-5 mb-md-0 mb-3">
+    <div className="container py-4 px-md-5 position-relative">
       <button
         onClick={() => navigate("/")}
-        className="btn position-fixed top-0 start-0 mt-3 ms-3 d-md-flex d-none"
-        style={{ zIndex: 100, backgroundColor: "var(--primary-color)" }}
+        className="btn btn-outline-light position-absolute top-0 start-0 mt-3 ms-3 d-flex align-items-center gap-2"
+        style={{ zIndex: 100 }}
       >
-        Back
+        <i className="fa fa-arrow-left"></i>{" "}
+        <span className="d-none d-md-inline">Back</span>
       </button>
-      <button
-        onClick={() => navigate("/")}
-        className="btn position-fixed top-0 start-0 ms-3 d-md-none"
-        style={{
-          zIndex: 1,
-          backgroundColor: "var(--primary-color)",
-          marginTop: "75px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "50px",
-          height: "50px",
-          borderRadius: "50%",
-          padding: "0",
-        }}
-      >
-        <lord-icon
-          src="https://cdn.lordicon.com/uvtlaqep.json"
-          trigger="hover"
-          colors="primary:#ffffff"
-          style={{
-            width: "20px",
-            height: "20px",
-            transform: "rotate(180deg)",
-          }}
-        ></lord-icon>
-      </button>
+      
       {selectedPackage ? (
         <>
           <h3 className="mt-4 d-md-none d-block text-center font-monospace para pt-5">

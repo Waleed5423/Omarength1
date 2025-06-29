@@ -1,0 +1,13 @@
+.borders {
+  border: 1px solid var(--primary-color);
+}
+
+input,
+select {
+  border-radius: 6px !important;
+}
+
+button.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
