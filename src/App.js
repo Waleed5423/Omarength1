@@ -21,7 +21,6 @@ const App = () => {
   return (
     <>
       {loading && <Loader />}
-      <ReactLenis root options={{ lerp: 0.5, duration: 1.5, smoothTouch: true }}>
         <Router>
           <Navbar />
           <Routes>
@@ -29,7 +28,6 @@ const App = () => {
             <Route path="/package-details/:type" element={<PackageDetails />} />
           </Routes>
         </Router>
-      </ReactLenis>
     </>
   );
 };
