@@ -10,10 +10,8 @@ const pricingPlans = [
     period: "",
     features: [
       "Custom workout plan",
-      "Meal plan",
-      "Progressive tracking",
-      "Monthly check-ins",
-      "24/7 Support",
+      "Basic nutrition advice",
+      "24/7 text support",
     ],
   },
   {

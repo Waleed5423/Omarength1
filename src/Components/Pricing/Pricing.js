@@ -5,7 +5,8 @@ import "./Pricing.css";
 
 const pricingPlans = [
   {
-    type: "GOLD",
+    type: "🥇 GOLD",
+    rawType: "GOLD",
     description: "",
     price: "Rs 9,999",
     period: "",
@@ -16,8 +17,9 @@ const pricingPlans = [
     ],
   },
   {
-    type: "PLATINUM",
-    description: "Most Popular",
+    type: "💎 PLATINUM",
+    rawType: "PLATINUM",
+    description: "⭐ Most Popular",
     price: "Rs 13,999",
     period: "",
     features: [
@@ -37,7 +39,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(true);
-    }, 3500); // Delay for 5 seconds
+    }, 2500); // Delay for 3.5 seconds
 
     return () => clearTimeout(timer); // Cleanup
   }, []);
@@ -79,7 +81,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
         {pricingPlans.map((plan, index) => (
           <motion.div
             key={index}
-            className={`pricing-card mx-md-3 my-md-2 mt-4 ${plan.type.toLowerCase()}`}
+            className={`pricing-card mx-md-3 my-md-2 mt-4 ${plan.rawType.toLowerCase()}`}
             variants={cardVariants}
           >
             <div className="heading pt-2">
@@ -100,7 +102,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
               ))}
             </ul>
             <Link
-              to={`/package-details/${plan.type.replace(" Package", "")}`}
+              to={`/package-details/${plan.rawType}`}
               className="cta-btn text-decoration-none"
             >
               SELECT

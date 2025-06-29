@@ -51,6 +51,12 @@
   font-size: 20px;
   font-weight: normal;
 }
+.pricing-card .heading {
+  min-height: 80px; /* You can tweak this number to match the height of the largest heading */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .pricing-card .heading p,
 .pricing-cards .heading p {
