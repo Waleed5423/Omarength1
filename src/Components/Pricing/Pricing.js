@@ -37,7 +37,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(true);
-    }, 4500); // Delay for 5 seconds
+    }, 3500); // Delay for 5 seconds
 
     return () => clearTimeout(timer); // Cleanup
   }, []);
