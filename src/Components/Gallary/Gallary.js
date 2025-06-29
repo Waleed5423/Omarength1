@@ -78,7 +78,7 @@ const Gallery = () => {
                 width: "100%",
                 height: "350px",
                 objectFit: "cover",
-                objectPosition: "center",
+                objectPosition: "bottom",
                 border: "1px solid var(--primary-color)",
                 borderRadius: "10px",
                 cursor: "pointer", // Add pointer cursor to indicate clickability
