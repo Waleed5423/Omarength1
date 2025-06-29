@@ -67,7 +67,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
       >
         <motion.h6 variants={cardVariants}>Pricing</motion.h6>
         <motion.h3 className="text-light" variants={cardVariants}>
-          What We Can Offer
+          What I Can Offer
         </motion.h3>
       </motion.div>
       <motion.div
