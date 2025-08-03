@@ -14,7 +14,7 @@ import img9 from "../../Media/RA5.jpg";
 import "./Gallary.css";
 
 const Gallery = () => {
-  const images = [img8, img9img5, img6, img7, img1, img2, img3, img4];
+  const images = [img8, img9, img5, img6, img7, img1, img2, img3, img4];
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 

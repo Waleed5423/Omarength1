@@ -8,7 +8,7 @@ const pricingPlans = [
     type: "🥇 GOLD",
     rawType: "GOLD",
     description: "",
-    price: "Rs 9,999",
+    price: "Rs 7,999",
     period: "",
     features: [
       "Custom workout plan",
@@ -20,7 +20,7 @@ const pricingPlans = [
     type: "💎 PLATINUM",
     rawType: "PLATINUM",
     description: "⭐ Most Popular",
-    price: "Rs 13,999",
+    price: "Rs 9,999",
     period: "",
     features: [
       "Custom workout plan",
