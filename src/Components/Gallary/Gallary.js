@@ -9,10 +9,12 @@ import img4 from "../../Media/RA4.jpg";
 import img5 from "../../Media/newreview1.jpg";
 import img6 from "../../Media/newreview2.jpg";
 import img7 from "../../Media/newreview3.jpg";
+import img8 from "../../Media/RA6.jpg";
+import img9 from "../../Media/RA5.jpg";
 import "./Gallary.css";
 
 const Gallery = () => {
-  const images = [img5, img6, img7, img1, img2, img3, img4];
+  const images = [img8, img9img5, img6, img7, img1, img2, img3, img4];
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
