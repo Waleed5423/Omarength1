@@ -12,10 +12,10 @@
   --col: #e4e4e7;
   position: relative;
   height: 490px;
-  min-width: 320px; 
+  min-width: 320px;
   padding-block: 25px;
   padding-top: 18px;
-  padding-bottom: 20px ;
+  padding-bottom: 20px;
   border-radius: 4px;
   border: 1px solid var(--primary-color);
   background-color: #26262620;
@@ -187,18 +187,18 @@
   display: flex;
   flex-direction: column;
 }
-.butt{
+.butt {
   border: var(--primary-color) 1px solid;
   background-color: var(--primary-color);
   color: white;
   padding: 5px;
   transition: 0.2s ease;
 }
-.butt:hover{
+.butt:hover {
   border: white 1px solid;
 }
 
-option{
+option {
   background-color: #171717;
   color: var(--primary-color);
 }
