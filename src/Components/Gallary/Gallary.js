@@ -11,10 +11,11 @@ import img6 from "../../Media/newreview2.jpg";
 import img7 from "../../Media/newreview3.jpg";
 import img8 from "../../Media/RA6.jpg";
 import img9 from "../../Media/RA5.jpg";
+import img10 from "../../Media/RA7.jpg";
 import "./Gallary.css";
 
 const Gallery = () => {
-  const images = [img8, img9, img5, img6, img7, img1, img2, img3, img4];
+  const images = [img2, img3, img4, img8, img9, img5, img6, img7, img1, img10];
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 

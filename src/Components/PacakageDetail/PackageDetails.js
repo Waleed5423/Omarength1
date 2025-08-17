@@ -6,7 +6,7 @@ const pricingPlans = [
   {
     type: "GOLD",
     description: "FITNESS DEAL",
-    price: "RS 7,999",
+    price: "€95",
     period: "",
     features: [
       "Custom workout plan",
@@ -17,7 +17,7 @@ const pricingPlans = [
   {
     type: "PLATINUM",
     description: "PREMIUM FITNESS",
-    price: "RS 9,999",
+    price: "€125",
     period: "",
     features: [
       "Custom workout plan",
@@ -130,14 +130,14 @@ const PackageDetails = () => {
           console.log("SUCCESS!", response.status, response.text);
           alert(
             "Your message has been successfully submitted!\n\n" +
-              "Thank you for reaching out. We will get back to you shortly via email or WhatsApp."
+            "Thank you for reaching out. We will get back to you shortly via email or WhatsApp."
           );
         },
         (err) => {
           console.log("FAILED...", err);
           alert(
             "Oops! There was an issue with submitting your message.\n\n" +
-              "Please check your details and try again. If the problem persists, feel free to contact us directly."
+            "Please check your details and try again. If the problem persists, feel free to contact us directly."
           );
         }
       );
