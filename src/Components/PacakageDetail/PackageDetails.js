@@ -6,7 +6,7 @@ const pricingPlans = [
   {
     type: "GOLD",
     description: "FITNESS DEAL",
-    price: "€95",
+    price: "€50",
     period: "",
     features: [
       "Custom workout plan",
@@ -17,7 +17,7 @@ const pricingPlans = [
   {
     type: "PLATINUM",
     description: "PREMIUM FITNESS",
-    price: "€125",
+    price: "€80",
     period: "",
     features: [
       "Custom workout plan",
