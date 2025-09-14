@@ -13,7 +13,6 @@ const pricingPlans = [
     features: [
       "Custom workout plan",
       "Basic nutrition advice",
-      "24/7 text support",
     ],
   },
   {

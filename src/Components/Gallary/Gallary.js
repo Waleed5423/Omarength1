@@ -49,7 +49,7 @@ const Gallery = () => {
         variants={containerVariants}
       >
         <h6>REVIEWS</h6>
-        <h3 className="text-light">Our satisfied customers</h3>
+        <h3 className="text-light">Client Success Stories</h3>
       </motion.div>
 
       <Splide

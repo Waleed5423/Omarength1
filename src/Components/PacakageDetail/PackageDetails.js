@@ -8,11 +8,7 @@ const pricingPlans = [
     description: "FITNESS DEAL",
     price: "€50",
     period: "",
-    features: [
-      "Custom workout plan",
-      "Basic nutrition advice",
-      "24/7 text support",
-    ],
+    features: ["Custom workout plan", "Basic nutrition advice"],
   },
   {
     type: "PLATINUM",
@@ -33,6 +29,7 @@ const pricingPlans = [
 const trainingPackages = ["Weight Lifting", "Weight Loss", "Strength Training"];
 
 const countryCodes = [
+  { code: "+31", country: "Netherlands", flag: "🇳🇱" },
   { code: "+92", country: "Pakistan", flag: "🇵🇰" },
   { code: "+1", country: "USA/Canada", flag: "🇺🇸" },
   { code: "+44", country: "UK", flag: "🇬🇧" },
@@ -53,7 +50,7 @@ const PackageDetails = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    countryCode: "+92",
+    countryCode: "+31",
     phone: "",
     height: "",
     weight: "",
@@ -130,14 +127,14 @@ const PackageDetails = () => {
           console.log("SUCCESS!", response.status, response.text);
           alert(
             "Your message has been successfully submitted!\n\n" +
-            "Thank you for reaching out. We will get back to you shortly via email or WhatsApp."
+              "Thank you for reaching out. We will get back to you shortly via email or WhatsApp."
           );
         },
         (err) => {
           console.log("FAILED...", err);
           alert(
             "Oops! There was an issue with submitting your message.\n\n" +
-            "Please check your details and try again. If the problem persists, feel free to contact us directly."
+              "Please check your details and try again. If the problem persists, feel free to contact us directly."
           );
         }
       );
@@ -268,7 +265,9 @@ const PackageDetails = () => {
                     </div>
                     <div className="col-md-6">
                       <div className="mb-2">
-                        <label className="form-label text-light">Height</label>
+                        <label className="form-label text-light">
+                          Height (cm)
+                        </label>
                         <select
                           name="height"
                           value={formData.height}
@@ -277,17 +276,13 @@ const PackageDetails = () => {
                           required
                         >
                           <option value="">Select Height</option>
-                          {Array.from({ length: 8 }, (_, i) => {
-                            const feet = i + 4;
-                            return Array.from({ length: 12 }, (_, j) => {
-                              const inches = j;
-                              const height = `${feet}'${inches}"`;
-                              return (
-                                <option key={height} value={height}>
-                                  {height}
-                                </option>
-                              );
-                            });
+                          {Array.from({ length: 151 }, (_, i) => {
+                            const cm = i + 100; // 100cm se start, 250cm tak
+                            return (
+                              <option key={cm} value={cm}>
+                                {cm} cm
+                              </option>
+                            );
                           })}
                         </select>
                       </div>
