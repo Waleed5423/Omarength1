@@ -8,7 +8,7 @@ const pricingPlans = [
     type: "🥇 GOLD",
     rawType: "GOLD",
     description: "",
-    price: "€425",
+    price: "€215",
     period: "",
     features: [
       "Custom workout plan",
@@ -19,7 +19,7 @@ const pricingPlans = [
     type: "💎 PLATINUM",
     rawType: "PLATINUM",
     description: "⭐ Most Popular",
-    price: "€475",
+    price: "€250",
     period: "",
     features: [
       "Custom workout plan",
@@ -38,7 +38,7 @@ const Pricing = forwardRef(({ pricingRef, pricing2Ref }, ref) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAnimation(true);
-    }, 2500); // Delay for 3.5 seconds
+    }, 2500); // Delay for 2.5 seconds
 
     return () => clearTimeout(timer); // Cleanup
   }, []);
