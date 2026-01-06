@@ -6,14 +6,14 @@ const pricingPlans = [
   {
     type: "GOLD",
     description: "FITNESS DEAL",
-    price: "€425",
+    price: "€215",
     period: "",
     features: ["Custom workout plan", "Basic nutrition advice"],
   },
   {
     type: "PLATINUM",
     description: "PREMIUM FITNESS",
-    price: "€475",
+    price: "€250",
     period: "",
     features: [
       "Custom workout plan",
@@ -39,7 +39,7 @@ const countryCodes = [
   { code: "+49", country: "Germany", flag: "🇩🇪" },
   { code: "+33", country: "France", flag: "🇫🇷" },
   { code: "+61", country: "Australia", flag: "🇦🇺" },
-  { code: "+81", country: "Japan", flag: "🇯🇵" },
+  { code: "+81", country: "Japan", flag: "🇯���" },
 ];
 
 const PackageDetails = () => {
